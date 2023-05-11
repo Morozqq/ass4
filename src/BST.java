@@ -34,8 +34,9 @@ public class BST <K extends Comparable<K>, V>{
                 }
             }
         }
-//
+
     }
+
     public V get(K key){
 
     }
@@ -44,5 +45,11 @@ public class BST <K extends Comparable<K>, V>{
     }
     public Iterable<K> iterator(){
 
+    }
+    public void InOrderTraversal(Node focusNode){
+        if (focusNode==null){
+            InOrderTraversal(focusNode.left);
+            InOrderTraversal(focusNode.right);
+        }
     }
 }
