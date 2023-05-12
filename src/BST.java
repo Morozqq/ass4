@@ -151,7 +151,7 @@ public class BST <K extends Comparable<K>, V>{
         }
         return replacement;
     }
-    //Iterator
+    //Iteratorr
     public void inorderTraversal() {
         Node curr = root;
         Node prev = null;
