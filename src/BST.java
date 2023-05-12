@@ -61,6 +61,7 @@ public class BST <K extends Comparable<K>, V>{
             }
             //when its 0 it means that we found our key
             else {
+                System.out.println("Get value for key " + key + ": " );
                 return currentNode.val;
             }
         }
@@ -150,16 +151,35 @@ public class BST <K extends Comparable<K>, V>{
         }
         return replacement;
     }
+    //Iterator
+    public void inorderTraversal() {
+        Node curr = root;
+        Node prev = null;
 
+        while (curr != null) {
+            if (curr.left == null) {
+                System.out.println(curr.val);
+                curr = curr.right;
+            } else {
+                prev = curr.left;
+                while (prev.right != null && prev.right != curr) {
+                    prev = prev.right;
+                }
 
-
-    public Iterable<K> iterator(){
-
-    }
-    public void InOrderTraversal(Node focusNode){
-        if (focusNode==null){
-            InOrderTraversal(focusNode.left);
-            InOrderTraversal(focusNode.right);
+                if (prev.right == null) {
+                    prev.right = curr;
+                    curr = curr.left;
+                } else {
+                    prev.right = null;
+                    System.out.println(curr.val);
+                    curr = curr.right;
+                }
+            }
         }
     }
+
+
+
+
+
 }
